@@ -9,7 +9,7 @@
 </head>
 <body class="inner-page">
     <header class="main-header">
-        <nav class="main-navigation">
+        <nav class="main-navigation container">
             <a class="main-header-logo" href="index.html">
                 <img src="img/logo.svg" width="463" height="98" alt="Логотип Барбершопа">
             </a>
@@ -27,20 +27,15 @@
     </header>
     <main class="container">
         <h1 class="page-title">Набор для путешествий «Baxter of California»</h1>
-
         <ul class="breadcrumps">
-            <li>
-                <a href="Index.html">Главная</a>
-            </li>
-            <li>
-                <a href="catalog.html">Магазин</a>
-            </li>
-            <li>
-                <a href="#">Средства для ухода</a>
-            </li>
+            <li><a href="Index.html">Главная</a></li>
+            <li><a href="catalog.html">Магазин</a></li>
+            <li><a href="#">Средства для ухода</a></li>
             <li class="breadcrumps-current">Набор для путешествий «Baxter of California»</li>
         </ul>
-        <section class="product-photos">
+        
+        <div class="catalog-columns">
+          <section class="product-photos">
             <h2 class="visually-hidden">Изображения товара</h2>
             <!--Нужен для поисковиков и браузеров (спрячем) + навигация-->
 
@@ -59,8 +54,9 @@
                     <img src="img/product-small-3.jpg" width="140" height="149" alt="Фото отдельной части">
                 </li>
             </ul>
-        </section>
-        <section class="product-info">
+          </section>
+        
+          <section class="product-info">
             <h2 class="visually-hidden">Описание товара</h2>
             <p class="product-availability">Есть в наличии</p>
             <p class="product-article">Артикул: dexter</p>
@@ -79,8 +75,10 @@
                 <li>Крем после бритья, шампунь (50мл)</li>
                 <li>Удобная кожанная косметичка</li>
             </ul>
-        </section>
+          </section>
+        </div>
     </main>
+    
     <footer class="main-footer">
         <p class="footer-contacts">
             Барбершоп Борода<br>

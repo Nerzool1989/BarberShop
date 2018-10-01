@@ -14,6 +14,132 @@ body {
     background-position: top center;
     background-repeat: no-repeat;
 }
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.visually-hidden:not(:focus):not(active),
+input[type="checkbox"].visually-hidden,
+input[type="radio"].visually-hidden {
+    position: absolute;
+
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    border: 0;
+    padding: 0;
+
+    white-space: nowrap;
+
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
+}
+
+.main-header {
+    margin-bottom: 75px;
+}
+.main-header-logo {
+    width: 368px;
+    height: 153px;
+
+    order: 2;
+}
+
+.main-navigation {
+    font-size: 16px;
+    line-height: 20px;
+    color: #ffffff;
+
+    background-color: transparent;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-navigation-wrapper {
+    width: 100%;
+    margin-bottom: 62px;
+
+    background-color: #000000;
+}
+
+.main-navigation-wrapper .container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container {
+    width: 940px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.site-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    width: 620px;
+}
+
+.user-navigator {
+    display: flex;
+    max-width:140px;
+}
+
+.user-navigator .login-link {
+    padding-left: 50px;   /*расширили для псевдоэлемента*/
+    position: relative;
+}
+
+.login-link::before {
+    content: '';
+    position: absolute;
+    top: 27px;
+    left: 24px;
+    width: 16px;
+    height: 18px;
+
+    background-image: url("../img/login.svg");
+    background-repeat: no-repeat;
+    background-position: 0 0;
+
+    opacity: 0.3;
+}
+
+.login-link:hover::before,
+.login-link:focus::before,
+.login-link:active::before {
+    opacity: 1;
+} 
+
+.site-navigation, 
+.user-navigator {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.site-navigation a, 
+.user-navigator a {
+    display: block;
+    padding: 25px 20px;
+
+    color: #ffffff;
+}
+
+.site-navigation a:focus,
+.site-navigation a:hover,
+.user-navigator a:focus,
+.user-navigator a:hover {
+    background-color: #242424;
+}
 /* catalog page */
 .inner-page {
     color: #000000;
@@ -24,12 +150,43 @@ body {
     background-position: 0 0;
 }
 
+.inner-page .main-header {
+    margin-bottom: 50px;
+    /* временно */
+    background-color: #000000;
+}
+
+.inner-page .main-navigation {
+    align-items: flex-start;
+    flex-direction: row;
+}
+
+.inner-page .user-navigation {
+    margin-left: auto;
+}
+
+.inner-page .main-header-logo {
+    order: 0;
+
+    width: 111px;
+    height: 24px;
+    padding: 23px 20px;
+}
+
 .page-title {
+    margin: 0;
+    margin-bottom: 15px;
+    padding: 0;
+
     font-size: 30px;
     line-height: 42px;
 }
 
 .breadcrumbs {
+    margin: 0;
+    margin-bottom: 50px;
+    padding: 0;
+
     list-style: none;
 }
 
@@ -46,6 +203,15 @@ body {
     color: #aba9a7;
 }
 
+.catalog-columns {
+    display:flex;
+    justify-content: space-between;
+}
+
+.filters {
+    width: 180px;
+}
+
 .filter fieldset {
     border:none;
 }
@@ -59,7 +225,7 @@ body {
     list-style: none;
     line-height: 18px;
 }
-/* воообще странно примениться к селектору лэйбл если перед ним стоит выделенный слект инпут */
+/*  примениться к селектору лэйбл если перед ним стоит выделенный слект инпут */
 .filter input:hover + label,
 .filter input:focus + label {
     color: #663d15;
@@ -71,13 +237,31 @@ body {
     opacity: 0.5;
 }
 
+.catalog {
+    width: 700px;
+}
+
 .catalog-list {
+    padding: 0;
+    margin: 0;
+    margin-bottom: 25px;   
+    display: flex;
+    flex-wrap: wrap;
+
     list-style: none;
 }
 
 .catalog-item {
+    width: 220px;
+    margin-bottom: 20px;
+    margin-right: 20px;
+
     background-color: #f8f8f8;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.catalog-item:nth-child(3n) {
+    margin-right: 0;
 }
 
 .catalog-item:hover {
@@ -106,6 +290,9 @@ body {
     color: #ffffff;
 }
 .pagination-list {
+    padding: 0;
+    margin: 0;
+
     list-style: none;
 }
 .pagination-item a {
@@ -130,8 +317,16 @@ body {
 
     background-color: #ffffff;
 }
+
+.inner-page .main-footer {
+    margin-top: 45px;
+}
 /* end catalog */
 /* отсюда начинается catalog-item */
+.product-photos {
+    width: 460px;
+}
+
 
 .product-photo-preview {
     list-style: none;
@@ -143,6 +338,11 @@ body {
 .product-photo-full {
     box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
 }
+
+.product-info {
+    width: 390px;
+}
+
 .product-article {
     text-align: right;
     color: #aeaeae;
@@ -161,11 +361,12 @@ body {
     list-style: none;
 }
 /* end catalog-item */
-a {
-    text-decoration: none;
-}
 
 .button {
+    display: inline-block;
+    padding: 10px 30px;
+    margin-right: 16px;
+
     font: inherit;
 
     text-align: center;
@@ -183,69 +384,185 @@ a {
     background-color: #663d15;
 }
 
-.main-navigation {
-    font-size: 16px;
-    line-height: 20px;
-    color: #ffffff;
-
+.button.disabled, /* для обычн ссылок и для тегов батон <button disabled>*/
+.button:disabled {
+    cursor: default;
+    opacity: 0.5;
     background-color: #000000;
 }
 
-.site-navigation, 
-.user-navigator {
-    list-style: none;
-}
-
-.site-navigation a, 
-.user-navigator a {
-    color: #ffffff;
-}
-
-.site-navigation a:focus,
-.site-navigation a:hover,
-.user-navigator a:focus,
-.user-navigator a:hover {
-    background-color: #242424;
+.features {
+    margin-bottom: 20px;
 }
 
 .features-list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+
     list-style: none;
 }
 
 .features-item {
+    width: 300px;
     text-align: center;
 }
 
 .features-item h3 {
+    position: relative;
+    margin: 0;
+    margin-bottom: 40px;
     font-size: 30px;
     line-height: 42px;
+}
+
+.features-item h3::after {
+    content: "";
+
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+    bottom: -30px;
+    left: 50%;
+    margin-left: -10px;
+    transform: rotate(45deg);
+
+    background-color: #ffffff;
+}
+
+.features-item p {
+    margin: 0 10px;
 }
 
 .index-columns {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px 80px;
+    margin-bottom: 35px;
     color: #000000;
 
     background-color: #f8f5f2;
-    background-image: url("../img/pattern-light.jpg");
-    background-repeat: repeat;
-    background-position: 0 0;
+    background-image: 
+        url("../img/panel.png"),
+        url("../img/pattern-light.jpg");
+    background-repeat: 
+        no-repeat,
+        repeat;
+    background-position:
+        center,
+        0 0;
 }
 
 .index-columns h2 {
+    margin: 0;
+    margin-bottom: 25px;
+
     font-size: 30px;
     line-height: 42px;
 }
+.news {
+    position: relative;
+    width: 380px;
+}
 
-.new-list {
+.news-list {
+    margin: 0;
+    margin-bottom: 25px;
+    padding: 0;
+
     list-style: none;
+}
+
+.news-item {
+    margin-bottom: 25px;
+}
+
+.news-item p {
+    margin: 0;
 }
 
 .news-item time {
     text-transform: lowercase;
 }
 
+.button-news {
+    position: absolute;
+    bottom: 0;
+}
+
+.gallery {
+    width: 300px;
+}
+
+.gallery-container {
+    position: relative;
+
+    height: 260px;
+}
+
 .gallery-content {
+    height: 164px;
+    margin: 0;
+
     background-color: #cccccc;
     border: 7px solid #ffffff;
+}
+
+.gallery-content img {
+    width: 286px;
+    height: 164px;
+}
+
+.gallery-button {
+    box-sizing: border-box;
+    position: absolute;
+    bottom: 0;
+
+    width: 140px;
+    margin: 0;
+}
+
+.gallery-button-back {
+    left: 0;
+}
+
+.gallery-button-next {
+    right: 0;
+}
+
+.contacts {
+    width: 380px;
+}
+
+.contacts p {
+    margin: 0;
+    margin-bottom: 25px;
+}
+
+.appointment {
+    width: 300px;
+}
+
+.appointment-info {
+    margin: 0;
+    margin-bottom: 15px;
+}
+
+.appointment-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.appointment-item {
+    width: 160px;
+    margin-right: 10px;
+    margin-top: 0;
+}
+
+.appointment-item:nth-child(n+2) {
+    width: 140px;
 }
 
 .appointment-item input {
@@ -259,13 +576,34 @@ a {
     border-color: #663d15;
 }
 
+#appointment-phone {
+    padding-right: 12px;
+}
+
+.appointment .button {
+    width: 100%;
+    margin: 0;
+}
+
 .main-footer {
+    padding: 60px 0;
+    margin-top: 65px;
     color: #ffffff;
 
     background-color: #212121;
     background-image: url(../img/pattern-dark.jpg);
     background-position: 0 0;
     background-repeat: repeat;
+}
+
+.main-footer .container {
+    display: flex;
+}
+
+.footer-contacts {
+    width: 320px;
+    margin: 0;
+    margin-right: 80px;
 }
 
 .footer-contacts a {
@@ -279,19 +617,61 @@ a {
 }
 
 .footer-social {
+    width: 145px;
     text-align: center;
+    margin-right: auto;
 }
 
 .footer-social ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 141px;
+    margin: 0 auto;
+    padding: 0;
+
     list-style: none;
 }
 
+.footer-social b {
+    display: block;
+    margin-bottom: 15px;
+}
+
 .social-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 43px;
+    height: 43px;
     color:  #ffffff;
 }
 
+.social-button:hover,
+.social-button:focus {
+    background-color: #ffffff;
+}
+
+.social-button:hover path,
+.social-button:focus path {
+    fill: #000000;
+}
+
 .footer-copyright {
+    width: 150px;
+    margin: 0;
+    margin-left: auto;
     text-align: center;
+}
+
+.footer-copyright b {
+    display: block;
+    margin-bottom: 15px;
+}
+
+.footer-copyright .button {
+    display: block;
+    margin-right: 0;
 }
 
 .footer-copyright .button:hover,
